@@ -12,34 +12,35 @@ public class Block {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Instant start;
-    private Instant end;
+    private Instant startTime;
+    private Instant endTime;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "activity_id")
     private Activity activity;
 
     public Block() {
     }
 
-    public Block(Instant start, Instant end) {
-        this.start = start;
-        this.end = end;
+    public Block(Instant startTime, Instant endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
-    public Instant getStart() {
-        return start;
+    public Instant getStartTime() {
+        return startTime;
     }
 
-    public void setStart(Instant start) {
-        this.start = start;
+    public void setStartTime(Instant startTime) {
+        this.startTime = startTime;
     }
 
-    public Instant getEnd() {
-        return end;
+    public Instant getEndTime() {
+        return endTime;
     }
 
-    public void setEnd(Instant end) {
-        this.end = end;
+    public void setEndTime(Instant endTime) {
+        this.endTime = endTime;
     }
 
     public Activity getActivity() {

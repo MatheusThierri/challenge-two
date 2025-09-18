@@ -15,7 +15,7 @@ public class Category {
 
     private String description;
 
-    @OneToMany
+    @OneToMany(mappedBy = "category")
     private Set<Activity> activities = new HashSet<>();
 
     public Category() {

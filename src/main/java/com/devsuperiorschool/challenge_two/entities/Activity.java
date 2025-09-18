@@ -17,13 +17,14 @@ public class Activity {
     private String description;
     private Double price;
 
-    @OneToMany
+    @OneToMany(mappedBy = "activity")
     private Set<Block> blocks = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "activities")
     private Set<Participant> participants = new HashSet<>();
 
     @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
 
     public Activity() {
